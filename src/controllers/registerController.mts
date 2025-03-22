@@ -19,11 +19,7 @@ export const createUser = async (data: RegisterRequest) => {
 
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(data.password, salt)
-
-    console.log(salt);
-    console.log(hash);
     
-
     const newUser = await User.create({
         name: data.name,
         email: data.email,
